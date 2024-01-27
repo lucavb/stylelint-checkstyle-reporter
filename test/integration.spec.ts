@@ -9,16 +9,18 @@ const DEFAULT_REPORT_FILE = 'test/temp/report.xml';
 
 const generateCommand = (formatter?: string, reportFile?: string) =>
     `npx stylelint ./test/assets/*.scss --config test/config/.stylelintrc.json --custom-formatter ${
-        formatter ?? 'index.js'
+        formatter ?? 'dist/stylelint-checkstyle-reporter.mjs'
     } -o ${reportFile ?? DEFAULT_REPORT_FILE}`;
 
 describe('integration with stylelint', () => {
     beforeAll(async () => {
         await firstValueFrom(
-            from(fs.access('dist/index.js', F_OK)).pipe(
+            from(fs.access('dist/stylelint-checkstyle-reporter.mjs', F_OK)).pipe(
                 timeout(3 * 1000),
                 catchError(() => {
-                    console.warn("The file 'dist/index.js' could not be found. Did you compile the project first?");
+                    console.warn(
+                        "The file 'dist/stylelint-checkstyle-reporter.mjs' could not be found. Did you compile the project first?",
+                    );
                     return of(undefined);
                 }),
             ),
@@ -46,11 +48,13 @@ describe('integration with stylelint', () => {
     it('should generate linebreaks with pretty formatting', async () => {
         const boundExec = bindCallback(exec);
         const reportFile = 'test/temp/report_pretty.xml';
-        const command = generateCommand('examples/prettyprint.js', reportFile);
+        const command = generateCommand('examples/prettyprint.cjs', reportFile);
         const xmlContent = await firstValueFrom(
             from(fs.unlink(reportFile)).pipe(
                 catchError((): Observable<null> => of(null)),
-                switchMap((): Observable<unknown> => boundExec(command, {})),
+                switchMap((): Observable<unknown> => {
+                    return boundExec(command, {});
+                }),
                 switchMap((): Observable<Buffer> => from(fs.readFile(reportFile))),
                 map((buffer: Buffer): string => buffer.toString()),
             ),

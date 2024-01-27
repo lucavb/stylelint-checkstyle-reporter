@@ -7,19 +7,29 @@ which might be handy if you use the Jenkins [Checkstyle Plugin](https://wiki.jen
 
 ## Usage
 
+There are now two ways to use this package:
+
+### Through --custom-formatter
+
 You will want to run this command
 
-`stylelint "**/*.css" --custom-formatter node_modules/stylelint-checkstyle-reporter/index.js -o stylelint.xml >/dev/null 2>&1`
+`stylelint "**/*.css" --custom-formatter node_modules/stylelint-checkstyle-reporter/dist/stylelint-checkstyle-reporter.mjs -o stylelint.xml >/dev/null 2>&1`
 
 The pipe to `/dev/null` is optional but spares you the XML output on your console.
 
 You can also use this project in a JavaScript file of yours to customise the output. An example can be found
-[here](examples/prettyprint.js). The second parameter is passed along to `xmlbuilder2`, so you can see possible values
-in the [XMLWriterOptions](https://github.com/oozcitak/xmlbuilder2/blob/bf22aeef1b6fd91e717d70298db8129573890518/src/interfaces.ts#L444)
-interface.
+[here](examples/prettyprint.cjs).
 
 For more information, read the [stylelint](https://github.com/stylelint/stylelint) documentation about using formatters
 and follow those instructions.
+
+### Through Bash pipes
+
+The alternative would be to use a bash pipe
+
+`stylelint -f json "**/*.css" 2>&1 | npx stylelint-checkstyle-reporter > stylelint-result.xml`
+
+The benefit would be the somewhat shorter syntax compared to the first approach.
 
 ## Credit
 
