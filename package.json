@@ -79,7 +79,7 @@
         "rollup": "4.19.2",
         "rxjs": "7.8.1",
         "semantic-release": "23.0.8",
-        "stylelint": "16.2.1",
+        "stylelint": "16.11.0",
         "stylelint-config-recommended-scss": "14.0.0",
         "stylelint-config-standard": "36.0.1",
         "stylelint-scss": "6.2.1",
