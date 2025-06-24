@@ -2,7 +2,7 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "types": ["vitest/globals"],
-        "moduleResolution": "node"
+        "moduleResolution": "nodenext"
     },
-    "include": ["src/**/*.spec.ts", "test/**/*.ts"]
+    "include": ["src/**/*.spec.ts", "test/**/*"]
 }
