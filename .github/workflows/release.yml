@@ -19,26 +19,10 @@ jobs:
         timeout-minutes: 15
         if: "!contains(github.event.head_commit.message, 'skip ci')"
         steps:
-            - name: DEBUG – show if the secret exists
-              run: |
-                  if [[ -z "${RELEASE_TOKEN}" ]]; then
-                    echo "❌ RELEASE_TOKEN is empty"
-                  else
-                    echo "✅ RELEASE_TOKEN length=${#RELEASE_TOKEN}"
-                  fi
-              env:
-                  RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-
             - name: Checkout repository
               uses: actions/checkout@v4
               with:
-                  persist-credentials: false
                   fetch-depth: 0
-
-            - name: Inject PAT into remote URL
-              run: |
-                  git remote set-url origin \
-                    "https://x-access-token:${{ secrets.RELEASE_TOKEN }}@github.com/${{ github.repository }}.git"
 
             - name: Set up Node.js
               uses: actions/setup-node@v4
@@ -59,6 +43,6 @@ jobs:
 
             - name: Publish release
               env:
-                  GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: npx semantic-release
