@@ -84,7 +84,7 @@
         "stylelint-config-standard": "39.0.1",
         "stylelint-scss": "6.12.1",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.46.1",
+        "typescript-eslint": "8.46.2",
         "vitest": "3.2.4"
     }
 }
