@@ -32,7 +32,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/lucavb/stylelint-checkstyle-reporter.git"
+        "url": "git+https://github.com/lucavb/stylelint-checkstyle-reporter.git"
     },
     "keywords": [
         "stylelint",
@@ -58,6 +58,9 @@
         "url": "https://github.com/lucavb/stylelint-checkstyle-reporter/issues"
     },
     "homepage": "https://github.com/lucavb/stylelint-checkstyle-reporter#readme",
+    "publishConfig": {
+        "provenance": true
+    },
     "dependencies": {
         "get-stdin": "9.0.0",
         "xmlbuilder2": "3.1.1"
@@ -70,13 +73,13 @@
         "@rollup/plugin-typescript": "12.3.0",
         "@semantic-release/commit-analyzer": "13.0.1",
         "@semantic-release/github": "11.0.6",
-        "@semantic-release/npm": "12.0.2",
+        "@semantic-release/npm": "13.1.4",
         "@semantic-release/release-notes-generator": "14.1.0",
         "@types/node": "24.9.2",
         "eslint": "9.38.0",
         "jiti": "2.6.1",
-        "prettier": "3.6.2",
-        "rollup": "4.52.5",
+        "prettier": "3.8.1",
+        "rollup": "4.57.1",
         "rxjs": "7.8.2",
         "semantic-release": "24.2.9",
         "stylelint": "16.25.0",
@@ -84,7 +87,7 @@
         "stylelint-config-standard": "39.0.1",
         "stylelint-scss": "6.12.1",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.46.2",
-        "vitest": "4.0.4"
+        "typescript-eslint": "8.56.0",
+        "vitest": "4.0.18"
     }
 }
