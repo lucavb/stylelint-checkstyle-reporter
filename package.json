@@ -78,7 +78,7 @@
         "@types/node": "24.9.2",
         "eslint": "9.39.5",
         "jiti": "2.7.0",
-        "prettier": "3.8.5",
+        "prettier": "3.9.6",
         "rollup": "4.57.1",
         "rxjs": "7.8.2",
         "semantic-release": "25.0.8",
