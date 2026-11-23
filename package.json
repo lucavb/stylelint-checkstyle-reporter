@@ -4,13 +4,13 @@
     "description": "Output Checkstyle XML reports of stylelint results",
     "exports": {
         ".": {
-            "types": "./dist/src/index.d.ts",
+            "types": "./dist/index.d.ts",
             "import": "./dist/stylelint-checkstyle-reporter.mjs",
             "require": "./dist/stylelint-checkstyle-reporter.cjs"
         },
         "./package.json": "./package.json"
     },
-    "types": "./dist/src/index.d.ts",
+    "types": "./dist/index.d.ts",
     "bin": {
         "stylelint-checkstyle-reporter": "dist/reporter-with-stdin.mjs"
     },
