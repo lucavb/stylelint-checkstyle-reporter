@@ -41,6 +41,9 @@ jobs:
             - name: Build
               run: npm run build
 
+            - name: Check published types
+              run: npm run lint:attw
+
             - name: Tests
               run: npm run test
 
