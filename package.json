@@ -22,6 +22,7 @@
     "scripts": {
         "build": "rollup -c && npm run make-executable",
         "format": "prettier -w --ignore-unknown .",
+        "lint:attw": "attw --pack .",
         "lint:eslint:fix": "eslint . --fix",
         "lint:eslint": "eslint .",
         "lint:prettier:fix": "prettier \"**/*\" --write --ignore-unknown",
@@ -71,6 +72,7 @@
         "xmlbuilder2": "3.1.1"
     },
     "devDependencies": {
+        "@arethetypeswrong/cli": "0.18.5",
         "@commitlint/cli": "19.8.1",
         "@commitlint/config-conventional": "19.8.1",
         "@eslint/js": "9.39.5",
