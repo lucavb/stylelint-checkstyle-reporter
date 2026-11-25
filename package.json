@@ -87,7 +87,7 @@
         "semantic-release": "26.0.1",
         "stylelint": "16.26.1",
         "stylelint-config-recommended-scss": "16.0.2",
-        "stylelint-config-standard": "39.0.1",
+        "stylelint-config-standard": "41.1.0",
         "stylelint-scss": "7.5.0",
         "typescript": "5.9.3",
         "typescript-eslint": "8.74.0",
